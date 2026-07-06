@@ -3,17 +3,6 @@ import prisma from "../prismaClient.js";
 
 const router = express.Router();
 
-// Get all todos for logged-in user
-router.get("/", async (req, res) => {
-  const todos = await prisma.todo.findMany({
-    where: {
-      userId: req.userId,
-    },
-  });
-
-  res.json(todos);
-});
-
 // Create a new todo
 router.post("/", async (req, res) => {
   const { task } = req.body;
@@ -25,6 +14,17 @@ router.post("/", async (req, res) => {
   });
 
   res.json(todo);
+});
+
+// Get all todos for logged-in user
+router.get("/", async (req, res) => {
+  const todos = await prisma.todo.findMany({
+    where: {
+      userId: req.userId,
+    },
+  });
+
+  res.json(todos);
 });
 
 // Update a todo
