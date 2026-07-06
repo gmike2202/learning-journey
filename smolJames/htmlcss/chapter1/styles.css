@@ -1,0 +1,14 @@
+body{
+  background: red;
+  color: white;
+}
+
+#first-div{
+  color: pink;
+  background: pink;
+}
+
+.paragraph{
+  color: black;
+  font-size: 2rem;
+}
